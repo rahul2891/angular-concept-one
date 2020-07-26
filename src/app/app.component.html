@@ -1,0 +1,43 @@
+<h1> Angular Concept One </h1>
+<hr>
+<h2>Parent</h2>
+
+<div class="row">
+  <div class="col parentBox" >
+    <h2>Car</h2>
+    <table width="100%"> 
+      <tr>
+        <th>Car Name:</th>
+        <th class="removeLink">Remove</th>
+      </tr>
+      <tr *ngFor="let car of cars; index as i">
+        <td>{{car}}</td>
+        <td class="removeLink" (click)="onRemoveCar(i)">Remove</td>
+      </tr>
+    </table>
+  </div>
+   <div class="col parentBox" >
+    <h2>Company</h2>
+    <table width="100%"> 
+      <tr>
+        <th>Company Name:</th>
+        <th class="removeLink" >Remove</th>
+      </tr>
+      <tr  *ngFor="let company of companies; index as i">
+        <td>{{company}}</td>
+        <td class="removeLink" (click)="onRemoveCompany(i)"> Remove</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<h2>Child</h2>
+<hr>
+<div class="row">
+<app-child [boxColor]="'red'"
+[placeholderText]="'Enter car name'"
+(inputEvent)="pushCars($event)"></app-child>
+<app-child [boxColor]="'green'"
+[placeholderText]="'Enter company name'"
+(inputEvent)="pushCompanies($event)"></app-child>
+</div>
